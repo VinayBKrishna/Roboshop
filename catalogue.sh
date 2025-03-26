@@ -27,3 +27,8 @@ systemctl start catalogue
 dnf install mongodb-mongosh -y
 
 mongosh --host localhost </app/db/master-data.js
+
+systemctl daemon-reload
+
+systemctl enable catalogue
+systemctl start catalogue
