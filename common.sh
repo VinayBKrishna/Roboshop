@@ -1,4 +1,13 @@
+print_head(){
+  echo -e "e\[36$*\e[0m"
+  echo "**********************************" &>> $log_file
+  echo -e "e\[36$*\e[0m"
+  echo "**********************************" &>> log_file
+}
+
 systemmd_setup(){
+  echo  component
+  print_head systemmd_setup
   systemctl daemon-reload
   systemctl enable ${component}
   systemctl restart ${component}
@@ -66,12 +75,7 @@ python_setup(){
 
 }
 
-print_head(){
-  echo -e "e\[36,$*\e[0m"
-  echo "**********************************" &>> $log_file
-  echo -e "e\[36,$*\e[0m"
-  echo "**********************************" &>> log_file
-}
+
 
 log_file=/tmp/roboshop.log
 rm -rf $log_file
