@@ -24,5 +24,8 @@ cd /usr/share/nginx/html
 print_head unzip to folder
 unzip /tmp/frontend.zip >> log_file
 
-
+print_head restart nginx
 systemctl restart nginx
+
+print_head status nginx
+systemctl status nginx
