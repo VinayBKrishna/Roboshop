@@ -1,18 +1,21 @@
-dnf module disable nginx -y
-dnf module enable nginx:1.24 -y
-dnf install nginx -y
+source common.sh
+component="nginx"
 
-cp nginx.conf /etc/nginx/nginx.conf
+print_head Disable Default Nginx
+dnf module disable nginx -y >> log_file
+
+
+dnf module enable nginx:1.24 -y >> log_file
+
+
+dnf install nginx -y >> log_file
+
+cp nginx.conf /etc/nginx/nginx.conf >> log_file
 
 rm -rf /usr/share/nginx/html/*
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip >> log_file
 cd /usr/share/nginx/html
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip >> log_file
 
 
-systemctl enable nginx
-systemctl start nginx
-
-
-
-systemctl restart nginx
+systemmd_setup

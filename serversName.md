@@ -7,3 +7,4 @@ shipping-dev.mikeydevops1.online:8080
 payment-dev.mikeydevops1.online:8080
 mysql-dev.mikeydevops1.online
 rabbitmq-dev.mikeydevops1.online:8080
+frontend-dev.mikeydevops1.online:8080
