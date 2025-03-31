@@ -6,7 +6,7 @@ print_head(){
 }
 
 systemmd_setup(){
-  echo  component
+  echo  ${component}
   print_head systemmd_setup
   systemctl daemon-reload
   systemctl enable ${component}
