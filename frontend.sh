@@ -25,4 +25,4 @@ print_head unzip to folder
 unzip /tmp/frontend.zip >> log_file
 
 
-systemmd_setup
+systemctl restart nginx
