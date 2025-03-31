@@ -2,6 +2,7 @@ source common.sh
 component="catalogue"
 
 cp catalogue.service /etc/systemd/system/catalogue.service
+cp mongod.repo /etc/yum.repos.d/mongo.repo
 
 print_head node disable
 dnf module disable nodejs -y
