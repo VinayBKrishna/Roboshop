@@ -28,22 +28,38 @@ artificat_download(){
 }
 
 app_pre_req(){
+  print_head file copy
   cp ${component}.service /etc/systemd/system/${component}.service
   echo $?
+
+  print_head user added
   useradd roboshop
   echo $?
 
 }
 
 nodejs_setup(){
+  print_head node disable
   dnf module disable nodejs -y
+
+  print_head node enable
   dnf module enable nodejs:20 -y
   echo $?
 
-  app_pre_req
   dnf install nodejs -y
   echo $?
-  artificat_download
+
+  print_head user added
+  useradd roboshop
+
+  print_head /APP DIREC created
+  mkdir /app
+
+  print_head file modified
+  curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+  cd /app
+  unzip /tmp/catalogue.zip
+
   cd /app
   npm install
   echo $?
@@ -79,3 +95,4 @@ python_setup(){
 
 log_file=/tmp/roboshop.log
 rm -rf $log_file
+
