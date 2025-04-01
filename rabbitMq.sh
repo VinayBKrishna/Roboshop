@@ -1,5 +1,7 @@
 source common.sh
-dnf install rabbitmq-server -y
+print_head installing rabbitmq-server
+## install RabbitMQ and zero dependency Erlang
+dnf install -y erlang rabbitmq-server
 
 print_head copiny files
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
