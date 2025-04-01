@@ -1,3 +1,4 @@
+source common.sh
 dnf install rabbitmq-server -y
 
 print_head copiny files
