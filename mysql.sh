@@ -1,6 +1,8 @@
+source common.sh
+
 print_head install mysql
 dnf install mysql-server -y
-echo$?
+echo $?
 
 print_head system enable
 systemctl enable mysqld
