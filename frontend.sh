@@ -26,6 +26,8 @@ unzip /tmp/frontend.zip >> log_file
 
 print_head restart nginx
 systemctl restart nginx
+echo $?
 
 print_head status nginx
 systemctl status nginx
+echo $?
