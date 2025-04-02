@@ -1,6 +1,8 @@
 source common.sh
 component="dispatch"
 
+cp dispatch.service /etc/systemd/system/dispatch.service
+
 dnf install golang -y
 
 useradd roboshop
