@@ -10,7 +10,7 @@ dnf install redis -y
 echo $?
 
 print_head update redis config file
-sed -i -e 's|127.0.0.1|0.0.0.0|' -e '/protected-mode/ c protected-mode no' /etc/redis.conf
+sed -i -e 's|127.0.0.1|0.0.0.0|' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
 echo $?
 
 systemctl enable redis

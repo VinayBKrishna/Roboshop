@@ -15,7 +15,7 @@ dnf install nodejs -y
 
 print_head user added
 useradd roboshop
-  echo $?
+echo $?
 
 mkdir /app
 
@@ -31,8 +31,17 @@ npm install
   echo $?
 
 
-systemmd_setup
+systemctl daemon-reload
+systemctl enable cart
+systemctl start cart
+echo $?
+
 
 print_head nodejs installed
 systemctl status cart
-  echo $?
+echo $?
+
+print_head log messages
+tail -f /var/log/messages
+echo $?
+
