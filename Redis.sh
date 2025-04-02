@@ -15,5 +15,7 @@ echo $?
 
 systemctl enable redis
 systemctl start redis
+systemctl restart redis
+
 systemctl status redis
 echo $?
