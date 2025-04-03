@@ -2,6 +2,7 @@ source common.sh
 component="catalogue"
 
 print_head copy file
+rm -rf /app/*
 cp catalogue.service /etc/systemd/system/catalogue.service
 cp mongod.repo /etc/yum.repos.d/mongo.repo
 exit_status $?
