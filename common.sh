@@ -1,8 +1,7 @@
 print_head(){
   echo -e "\e[36m$*\e[0m"
   echo "**********************************" &>> $log_file
-  echo -e "\e[36m$*\e[0m"
-  echo "**********************************" &>> log_file
+
 }
 
 systemmd_setup(){
