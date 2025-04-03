@@ -1,7 +1,7 @@
 print_head(){
-  echo -e "\e[32m$*\e[0m"
+  echo -e "\e[36m$*\e[0m"
   echo "**********************************" &>> $log_file
-  echo -e "\e[32m$*\e[0m"
+  echo -e "\e[36m$*\e[0m"
   echo "**********************************" &>> log_file
 }
 
@@ -14,12 +14,22 @@ systemmd_setup(){
   echo $?
 }
 
-shell_command_status(){
+exit_status(){
   if [ $1 -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
+    echo -e "\e[32m>> SUCCESS\e[0m"
   else
-    echo -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31m>> FAILURE\e[0m"
+    exit 1
   fi
+}
+
+check_useradded(){
+  print_head Add Application User
+  id roboshop
+  if [ $? -eq 0 ];then
+    useradd roboshop
+  fi
+  exit_status $?
 }
 
 artificat_download(){
