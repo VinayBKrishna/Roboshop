@@ -1,7 +1,7 @@
 print_head(){
-  echo -e "e\[36$*\e[0m"
+  echo -e "\e[32m$*\e[0m"
   echo "**********************************" &>> $log_file
-  echo -e "e\[36$*\e[0m"
+  echo -e "\e[32m$*\e[0m"
   echo "**********************************" &>> log_file
 }
 
@@ -12,6 +12,14 @@ systemmd_setup(){
   systemctl enable ${component}
   systemctl restart ${component}
   echo $?
+}
+
+shell_command_status(){
+  if [ $1 -eq 0 ]; then
+    echo -e "\e[32mSUCCESS\e[0m"
+  else
+    echo -e "\e[31mFAILURE\e[0m"
+  fi
 }
 
 artificat_download(){
