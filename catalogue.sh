@@ -23,10 +23,7 @@ exit_status $?
 
 check_useradded
 
-print_head /APP DIREC created
 mkdir /app
-exit_status $?
-
 
 print_head file modified
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
