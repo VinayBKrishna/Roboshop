@@ -25,7 +25,7 @@ exit_status(){
 check_useradded(){
   print_head Add Application User
   id roboshop
-  if [ $? -eq 0 ];then
+  if [ $? -ne 0 ];then
     useradd roboshop
   fi
   exit_status $?

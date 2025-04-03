@@ -21,7 +21,6 @@ dnf install nodejs -y
 exit_status $?
 
 
-print_head user added
 check_useradded
 
 print_head /APP DIREC created
